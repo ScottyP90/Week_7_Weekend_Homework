@@ -8,6 +8,10 @@ const GhibliListView = function(container) {
 GhibliListView.prototype.bindEvents = function() {
   PubSub.subscribe('StudioGhibli:studio-ghibli-loaded', (event) => {
     this.render(event.detail)
+    PubSub.subscribe('StudioGhibli:studio-ghibli-director', (evet) => {
+      this.clearList();
+      this.render(evet.detail);
+    })
   })
 }
 
@@ -18,5 +22,9 @@ GhibliListView.prototype.render = function functionName(studio) {
     this.container.appendChild(studioDev)
   })
 }
+
+GhibliListView.prototype.clearList = function () {
+  this.container.innerHTML = '';
+};
 
 module.exports = GhibliListView

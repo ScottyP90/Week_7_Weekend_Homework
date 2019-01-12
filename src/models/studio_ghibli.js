@@ -13,4 +13,19 @@ StudioGhibli.prototype.getData = function() {
   })
 };
 
+StudioGhibli.prototype.bindEvents = function() {
+  PubSub.subscribe('GhibliSelectView:selected-director', (event) => {
+    const chosenDirector = event.detail
+    const selectedDirector = this.findByDirector(chosenDirector)
+    PubSub.publish('StudioGhibli:studio-ghibli-director', selectedDirector)
+  })
+}
+
+StudioGhibli.prototype.findByDirector = function(searchDirector) {
+  const foundDirector = this.studio.filter((studioGhibli) => {
+    return studioGhibli.director === searchDirector;
+  })
+  return foundDirector;
+}
+
 module.exports = StudioGhibli
