@@ -1,0 +1,24 @@
+body{
+  background: lightblue;
+  font-family: monospace;
+  text-align: center;
+  margin: 3% 15%;
+}
+
+h2{
+  text-decoration: underline;
+}
+
+ul{
+  list-style: none;
+  margin: 10px;
+
+}
+
+li{
+  margin: 10px 0px;
+}
+
+#studio-ghibli-list{
+  text-align: left;
+}
